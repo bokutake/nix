@@ -32,7 +32,7 @@ in
     environment.systemPackages = with pkgs; [
       hypridle
       quickshell
-      swww
+      awww
       brightnessctl
       playerctl
       swaybg

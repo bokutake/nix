@@ -13,6 +13,7 @@
       firefox
       lmstudio
       libreoffice-fresh
+      bubblewrap
     ])
     ++ [
       (pkgs.callPackage ../../packages/codex-upstream.nix {

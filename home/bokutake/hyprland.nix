@@ -11,12 +11,13 @@ in
   config = lib.mkIf hyprlandEnabled {
     wayland.windowManager.hyprland = {
       enable = true;
+      configType = "hyprlang";
       extraConfig = builtins.readFile ../../dotfiles/dot_config/hypr/hyprland.conf;
 
       settings = {
         exec-once = [
           "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP SSH_AUTH_SOCK"
-          "swww-daemon --format xrgb && sleep 1 && swww img ${../../assets/wallpaper.png}"
+          "awww-daemon --format xrgb && sleep 1 && awww img ${../../assets/wallpaper.png}"
         ];
       };
     };

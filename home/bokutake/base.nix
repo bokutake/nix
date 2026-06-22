@@ -57,8 +57,8 @@
 
   programs.git = {
     enable = true;
-    userName = "bokutake";
-    userEmail = "i@html.moe";
+    settings.user.name = "bokutake";
+    settings.user.email = "i@html.moe";
     signing = {
       key = "4AA36D3E48DACF7059BB6C774AA091B0BB0B59D2";
       signByDefault = true;
