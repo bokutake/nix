@@ -24,7 +24,6 @@
 
     consoleLogLevel = 3;
     initrd.verbose = false;
-    initrd.kernelModules = [ "i915" ];
     kernelParams = [
       "quiet"
       "splash"

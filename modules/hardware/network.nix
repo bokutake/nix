@@ -27,4 +27,6 @@
     libqmi
     libmbim
   ];
+  
+  boot.kernelModules = [ "tun" ];
 }
