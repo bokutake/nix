@@ -47,6 +47,25 @@
         "type": "github"
       }
     },
+    "clash-party-packaging": {
+      "inputs": {
+        "home-manager": "home-manager",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1782229719,
+        "narHash": "sha256-HZTS+TWkkJY8QBxlfrW9/X84QDs7/ZF5SlnFOkxg3VE=",
+        "owner": "bokutake",
+        "repo": "clash-party-nix",
+        "rev": "0af6e81405a704e1825684005b00ec3af7ab6a39",
+        "type": "github"
+      },
+      "original": {
+        "owner": "bokutake",
+        "repo": "clash-party-nix",
+        "type": "github"
+      }
+    },
     "codex-upstream-bin": {
       "flake": false,
       "locked": {
@@ -136,6 +155,27 @@
     "home-manager": {
       "inputs": {
         "nixpkgs": [
+          "clash-party-packaging",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1782220169,
+        "narHash": "sha256-NxykfEdGQjop9m49Bk61pXpAduH8ICHgXC1N3Ph3Jp0=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "4b0b9474749820afac53ea30d4ccfef60aba5ce6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "home-manager_2": {
+      "inputs": {
+        "nixpkgs": [
           "nixpkgs"
         ]
       },
@@ -195,7 +235,7 @@
     },
     "nixos-hardware": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1781622756,
@@ -214,6 +254,22 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1781577229,
+        "narHash": "sha256-lrp67w8AulE9Ks53n27I45ADSzbOCn4H+CNW1Ck8B+8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "567a49d1913ce81ac6e9582e3553dd90a955875f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1767892417,
         "narHash": "sha256-8bW3q88CEg2u4hSP66Vf4lpbLonHz7hqDNBMcCY7E9U=",
         "rev": "3497aa5c9457a9d88d71fa93a4a8368816fbeeba",
@@ -225,7 +281,7 @@
         "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
       }
     },
-    "nixpkgs_2": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1781577229,
         "narHash": "sha256-lrp67w8AulE9Ks53n27I45ADSzbOCn4H+CNW1Ck8B+8=",
@@ -288,12 +344,13 @@
     "root": {
       "inputs": {
         "caelestia-shell": "caelestia-shell",
+        "clash-party-packaging": "clash-party-packaging",
         "codex-upstream-bin": "codex-upstream-bin",
         "disko": "disko",
-        "home-manager": "home-manager",
+        "home-manager": "home-manager_2",
         "lanzaboote": "lanzaboote",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_3"
       }
     },
     "rust-overlay": {

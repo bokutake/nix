@@ -26,6 +26,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    clash-party-packaging.url = "github:bokutake/clash-party-nix";
+
     codex-upstream-bin = {
       url = "https://github.com/openai/codex/releases/latest/download/codex-x86_64-unknown-linux-musl.tar.gz";
       flake = false;

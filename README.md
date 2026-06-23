@@ -33,7 +33,7 @@ This repository keeps system configuration, user Home Manager config, hardware-s
 
 - `hosts/<name>/`: machine-specific assembly and overrides
 - `home/bokutake/`: Home Manager configuration for the primary user
-- `home/bokutake/programs/`: user-space program modules such as Clash Party
+- `home/bokutake/programs/`: user-space adapters and program policy such as Clash Party integration
 - `home/bokutake/sessions/`: user-space session modules such as Hyprland
 - `modules/apps/`: desktop applications, gaming, and Clash frontend adapters
 - `modules/core/`: locale, Java runtime defaults, Nix settings, users, base packages
@@ -43,7 +43,7 @@ This repository keeps system configuration, user Home Manager config, hardware-s
 - `modules/security/`: SSH, TPM2, integrity checks, GitHub key sync
 - `modules/presets/`: reusable host composition presets
 - `modules/sessions/`: GNOME, Hyprland, greetd, Plymouth, and shared session defaults
-- `packages/`: local package wrappers such as upstream Codex release packaging
+- `packages/`: local package wrappers that still live in this repository, such as upstream Codex release packaging
 
 ## Hosts
 
@@ -54,6 +54,7 @@ This repository keeps system configuration, user Home Manager config, hardware-s
 - fractional scaling enabled through Home Manager dconf
 - Caffeine/AppIndicator/GJS OSK GNOME extensions installed
 - Clash Party is the default local proxy frontend
+- Clash Party packaging is currently consumed from a separate local flake input, and this repo keeps only the system/Home Manager adapter layers
 - Clash proxy defaults are exported through `desktop.proxy`, and Home Manager consumes the canonical `desktop.proxy.endpoints` interface
 - `desktop.proxy.dnsPort` is the canonical Mihomo DNS upstream port shared by system and Home Manager config
 - `systemd-resolved` remains the system stub on `127.0.0.53:53`; it forwards upstream DNS to `127.0.0.1:${desktop.proxy.dnsPort}`
@@ -95,6 +96,12 @@ Update all inputs:
 
 ```bash
 nix flake update
+```
+
+Update the local Clash Party packaging input after changing the external flake under `tmp/clash-party-upstream`:
+
+```bash
+nix flake lock --update-input clash-party-packaging
 ```
 
 Update only Codex to the latest upstream release asset pinned in `flake.lock`:
