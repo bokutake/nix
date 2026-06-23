@@ -8,10 +8,10 @@
     ./disko-config.nix # Import Disko configuration
 
     # Import common workstation preset
-    ../../modules/presets/workstation.nix
+    ../../modules/presets/hyprland-workstation.nix
 
     # Enable Greetd (Login Manager)
-    ../../modules/desktop/greetd.nix
+    ../../modules/sessions/greetd.nix
 
     # Hardware Support Modules
     ../../modules/hardware/btrfs-swap.nix

@@ -18,11 +18,14 @@ This repository keeps system configuration, user Home Manager config, hardware-s
 │   ├── c13/
 │   └── t480s/
 ├── modules/
+│   ├── apps/
 │   ├── core/
-│   ├── desktop/
 │   ├── hardware/
+│   ├── home/
+│   ├── network/
 │   ├── presets/
-│   └── security/
+│   ├── security/
+│   └── sessions/
 └── packages/
 ```
 
@@ -30,26 +33,37 @@ This repository keeps system configuration, user Home Manager config, hardware-s
 
 - `hosts/<name>/`: machine-specific assembly and overrides
 - `home/bokutake/`: Home Manager configuration for the primary user
-- `modules/core/`: locale, Nix settings, users, base packages
-- `modules/desktop/`: desktop stack, apps, GNOME, Hyprland, Clash Verge
+- `home/bokutake/programs/`: user-space program modules such as Clash Party
+- `home/bokutake/sessions/`: user-space session modules such as Hyprland
+- `modules/apps/`: desktop applications, gaming, and Clash frontend adapters
+- `modules/core/`: locale, Java runtime defaults, Nix settings, users, base packages
 - `modules/hardware/`: reusable hardware support modules
+- `modules/home/`: Home Manager bridge modules
+- `modules/network/`: system networking capabilities such as local proxy integration
 - `modules/security/`: SSH, TPM2, integrity checks, GitHub key sync
 - `modules/presets/`: reusable host composition presets
+- `modules/sessions/`: GNOME, Hyprland, greetd, Plymouth, and shared session defaults
 - `packages/`: local package wrappers such as upstream Codex release packaging
 
 ## Hosts
 
 ### `c13`
 
-- GNOME + GDM
+- GNOME workstation preset
 - ibus input method
 - fractional scaling enabled through Home Manager dconf
 - Caffeine/AppIndicator/GJS OSK GNOME extensions installed
-- Clash Verge enabled, autostarted, and used as the `nix-daemon` proxy via `socks5h://127.0.0.1:7897`
+- Clash Party is the default local proxy frontend
+- Clash proxy defaults are exported through `desktop.proxy`, and Home Manager consumes the canonical `desktop.proxy.endpoints` interface
+- `desktop.proxy.dnsPort` is the canonical Mihomo DNS upstream port shared by system and Home Manager config
+- `systemd-resolved` remains the system stub on `127.0.0.53:53`; it forwards upstream DNS to `127.0.0.1:${desktop.proxy.dnsPort}`
+- Clash Party TUN sidecars are materialized under `/var/lib/clash-party/sidecar` as root-owned setuid executables so the app does not need to mutate files in the Nix store
+- Home Manager removes stale per-user `Clash Verge.desktop` autostart entries when Party is the selected frontend to avoid dual-frontend TUN/core races
+- Clash Verge remains available as an alternative frontend by changing `desktop.clash.frontend`
 
 ### `t480s`
 
-- Hyprland preset
+- Hyprland workstation preset
 - `greetd` login flow
 - Lanzaboote secure boot
 - Btrfs swapfile + hibernation
@@ -88,6 +102,8 @@ Update only Codex to the latest upstream release asset pinned in `flake.lock`:
 ```bash
 nix flake update --update-input codex-upstream-bin
 ```
+
+Gaming defaults live in `modules/apps/gaming.nix` and currently provide Steam, Lutris, 32-bit graphics support, GameMode, Gamescope, MangoHud, ProtonUp-Qt, Vulkan tools, and Winetricks across desktop hosts.
 
 ## Security and access
 

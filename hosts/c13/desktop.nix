@@ -1,6 +1,8 @@
 { pkgs, lib, ... }:
 
 {
+  desktop.clash.frontend = "party";
+
   services.power-profiles-daemon.enable = lib.mkForce false;
 
   powerManagement.enable = true;

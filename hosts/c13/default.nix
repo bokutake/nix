@@ -11,9 +11,8 @@
 
     ./hardware-configuration.nix
     
-    ../../modules/presets/workstation-base.nix
-    ../../modules/desktop/gnome.nix
-    #../../modules/desktop/hyprland-optional.nix
+    ../../modules/presets/gnome-workstation.nix
+    #../../modules/sessions/hyprland-optional.nix
     
     # Hardware modules
     # So laggy on battery... use ppd instead

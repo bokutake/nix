@@ -5,6 +5,5 @@
     ./apps.nix
     ./remote.nix
     ./waydroid.nix
-    ./clash-verge.nix
   ];
 }

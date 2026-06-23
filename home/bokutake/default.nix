@@ -4,6 +4,7 @@
   imports = [
     ./base.nix
     ./desktop.nix
-    ./hyprland.nix
+    ./programs/clash-party.nix
+    ./sessions/hyprland.nix
   ];
 }

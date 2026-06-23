@@ -10,5 +10,7 @@
     git
     htop
     unzip
+    go
+    ripgrep
   ];
 }

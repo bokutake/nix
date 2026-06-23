@@ -11,6 +11,9 @@
       fastfetch
       gtop
       firefox
+      google-chrome
+      vscode
+      hmcl
       lmstudio
       libreoffice-fresh
       bubblewrap

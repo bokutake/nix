@@ -3,8 +3,8 @@
 {
   imports = [
     ./workstation-base.nix
-    ../desktop/hyprland-optional.nix
-    ../desktop/hyprland.nix
+    ../sessions/hyprland-optional.nix
+    ../sessions/hyprland.nix
   ];
 
   desktop.hyprland = {
