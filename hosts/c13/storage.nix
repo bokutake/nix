@@ -12,10 +12,15 @@
     size = 10;
   };
 
-  # zram for memory extension (4GB limit)
+  # Prefer zram over disk swap to reduce SSD writes under memory pressure.
   zramSwap = {
     enable = true;
-    memoryMax = 4096 * 1024 * 1024; # 4GB in bytes
+    memoryMax = 8 * 1024 * 1024 * 1024; # 8 GiB in bytes
+    priority = 1000;
+  };
+
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 180;
   };
 
   nix.settings.auto-optimise-store = true;
