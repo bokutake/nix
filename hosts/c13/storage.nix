@@ -15,6 +15,7 @@
   # Prefer zram over disk swap to reduce SSD writes under memory pressure.
   zramSwap = {
     enable = true;
+    memoryPercent = 200;
     memoryMax = 8 * 1024 * 1024 * 1024; # 8 GiB in bytes
     priority = 1000;
   };

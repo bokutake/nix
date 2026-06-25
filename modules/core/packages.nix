@@ -11,6 +11,7 @@
     htop
     unzip
     go
+    gcc
     ripgrep
   ];
 }
