@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./baidupcs-rust.nix
     ./gaming.nix
     ./utils.nix
     ./clash.nix

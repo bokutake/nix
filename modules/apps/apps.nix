@@ -15,6 +15,7 @@
       vscode
       hmcl
       lmstudio
+      baidupcs-go
       libreoffice-fresh
       bubblewrap
     ])

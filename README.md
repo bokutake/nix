@@ -61,7 +61,7 @@ This repository keeps system configuration, user Home Manager config, hardware-s
 - Clash Party TUN sidecars are materialized under `/var/lib/clash-party/sidecar` as root-owned setuid executables so the app does not need to mutate files in the Nix store
 - Home Manager removes stale per-user `Clash Verge.desktop` autostart entries when Party is the selected frontend to avoid dual-frontend TUN/core races
 - Clash Verge remains available as an alternative frontend by changing `desktop.clash.frontend`
-- BaiduPCS-Rust runs as an OCI container through `services.baidupcs-rust`; its web UI listens on `127.0.0.1:18888` and persistent data lives under `/var/lib/baidupcs-rust`
+- BaiduPCS-Go is installed from nixpkgs as the CLI Baidu Netdisk client
 
 ### `t480s`
 

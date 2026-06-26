@@ -42,7 +42,5 @@
   # QoL: Sensor support (iio) for tablet mode
   hardware.sensor.iio.enable = true;
 
-  services.baidupcs-rust.enable = true;
-
   system.stateVersion = "25.11";
 }
