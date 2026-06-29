@@ -4,7 +4,13 @@
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
     noto-fonts-color-emoji
+    source-han-sans
+    source-han-serif
+    sarasa-gothic
+    wqy_microhei
+    wqy_zenhei
     liberation_ttf
     fira-code
     fira-code-symbols

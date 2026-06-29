@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   home.stateVersion = "25.11";
@@ -20,6 +20,15 @@
       force = true;
     };
 
+    ".config/fontconfig/fonts.conf".text = ''
+      <?xml version="1.0" encoding="utf-8"?>
+      <!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+      <fontconfig>
+        <include ignore_missing="yes">/etc/fonts/fonts.conf</include>
+        <include ignore_missing="yes">${config.xdg.configHome}/fontconfig/conf.d</include>
+      </fontconfig>
+    '';
+
     ".local/share/backgrounds/wallpaper.png" = {
       source = ../../assets/wallpaper.png;
       force = true;
@@ -28,6 +37,34 @@
     ".local/share/backgrounds/bokutake.jpg" = {
       source = ../../assets/bokutake.jpg;
       force = true;
+    };
+  };
+
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      sansSerif = [
+        "Noto Sans"
+        "Noto Sans CJK SC"
+        "Source Han Sans SC"
+        "Sarasa Gothic SC"
+        "WenQuanYi Micro Hei"
+        "WenQuanYi Zen Hei"
+      ];
+      serif = [
+        "Noto Serif"
+        "Noto Serif CJK SC"
+        "Source Han Serif SC"
+      ];
+      monospace = [
+        "Sarasa Mono SC"
+        "JetBrainsMono Nerd Font"
+        "JetBrains Mono"
+      ];
+      emoji = [
+        "Noto Color Emoji"
+        "Noto Emoji"
+      ];
     };
   };
 
@@ -74,6 +111,9 @@
   };
 
   home.packages = with pkgs; [
+    deploy-rs
+    notion-app-enhanced
+    terraform
     yubikey-manager
   ];
 }
