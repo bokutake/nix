@@ -112,7 +112,6 @@
 
   home.packages = with pkgs; [
     deploy-rs
-    notion-app-enhanced
     terraform
     yubikey-manager
   ];
